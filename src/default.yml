@@ -1,0 +1,22 @@
+debug: false
+directory: ~/Books
+import:
+  hash: false
+  move: false
+  overwrite: false
+  prune: true
+  replacements:
+    '[<>:"\?\*\|]': _
+    '[\\/]': _
+    '[\x00-\x1f]': ''
+    \.$: _
+    \s+$: ''
+    ^\.: _
+isbndb:
+  key: null
+  limit: null
+library: library.db
+list:
+  isbn: false
+  table: false
+
