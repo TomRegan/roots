@@ -1,6 +1,6 @@
 extern crate config;
 
-use std::vec::Vec;
+use std::collections::HashMap;
 use std::path::PathBuf;
 
 use config::{Config, Environment};
@@ -24,7 +24,7 @@ struct Import {
     relocate: bool,
     overwrite: bool,
     prune: bool,
-    replacements: Vec<String>
+    replacements: HashMap<String, String>
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -58,11 +58,13 @@ pub fn configuration() -> Configuration {
                 .unwrap_or(false),
             prune: backing.get_bool("import.prune")
                 .unwrap_or(false),
-            replacements: vec![
-                String::from("[<>:\"?*|]"),
-                String::from("[/]"),
-                String::from("[\u{00}-\u{1f}]")
-            ]
+            replacements: [(r#"[<>:"\?\*\|]"#.to_string(), r#"_"#.to_string()),
+                           ("[\\/]".to_string(), "_".to_string()),
+                           ("[\u{00}-\u{1f}]".to_string(), "".to_string()),
+                           (r#"\.$"#.to_string(), r#"_"#.to_string()),
+                           (r#"\s+$"#.to_string(), r#""#.to_string()),
+                           (r#"^\."#.to_string(), r#"_"#.to_string())]
+                .iter().cloned().collect()
         },
         list: List {
             isbn: backing.get_bool("list.isbn").unwrap_or(false),

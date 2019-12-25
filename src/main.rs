@@ -1,10 +1,13 @@
 #[macro_use]
 extern crate clap;
+extern crate config;
+extern crate regex;
+extern crate serde;
 extern crate serde_yaml;
 
 mod application;
 mod interface;
-mod configuration;
+pub mod configuration;
 
 use interface::cli;
 use application::command::Command;
