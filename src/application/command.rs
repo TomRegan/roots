@@ -2,17 +2,16 @@
 pub enum Command {
     Config {
         path: bool,
-        default: bool
+        default: bool,
     },
     Fields,
     Import {
-        path: String
+        path: String,
     },
     List {
         author: bool,
         isbn: bool,
-        table: bool
+        table: bool,
     },
-    Update
+    Update,
 }
-
