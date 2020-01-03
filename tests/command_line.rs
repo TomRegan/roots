@@ -34,5 +34,13 @@ fn list_handles_no_database() {
         .arg("list")
         .assert();
     assert.success().stdout("No titles to list, is roots initialised?\n").code(0);
+}
 
+#[test]
+fn update_handles_no_database() {
+    let assert = Command::cargo_bin("roots")
+        .unwrap()
+        .arg("update")
+        .assert();
+    assert.success().stdout("No titles found, is roots initialised?\n").code(0);
 }

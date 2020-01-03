@@ -38,7 +38,7 @@ fn main() {
                 for f in available_fields {
                     println!("{}", f);
                 }
-            };
+            }
         }
         Command::List { .. } => {
             let available_titles = list_titles();
@@ -48,7 +48,16 @@ fn main() {
                 for t in available_titles {
                     println!("{}", t);
                 }
-            };
+            }
+        }
+        Command::Update => {
+            // scan the filesystem, cross-reference the database and ensure they're consistent
+            // use a 3p service to cross-ref metadata for existing titles
+            // offer to resolve any inconsistencies
+            let available_titles = list_titles();
+            if available_titles.is_empty() {
+                println!("No titles found, is roots initialised?");
+            }
         }
         _ => unreachable!(),
     }
