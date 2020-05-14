@@ -1,6 +1,6 @@
 extern crate config;
 
-use std::{env, path::PathBuf};
+use std::{env, path::{Path, PathBuf}};
 use std::collections::HashMap;
 
 use config::{Config, Environment, File};
@@ -22,6 +22,7 @@ struct Isbndb {
 #[derive(Debug, Serialize, Deserialize)]
 struct Import {
     hash: bool,
+    #[serde(rename = "move")]
     relocate: bool,
     overwrite: bool,
     prune: bool,
@@ -36,11 +37,18 @@ pub struct Configuration {
     import: Import,
     list: List,
     isbndb: Option<Isbndb>,
+    #[serde(skip_serializing)]
+    source: String,
 }
 
 impl Configuration {
+
     pub fn new() -> Configuration {
         load().try_into().unwrap()
+    }
+
+    pub fn get_source(self) -> String {
+        self.source
     }
 }
 
@@ -55,19 +63,36 @@ fn replacements() -> HashMap<String, String> {
 }
 
 fn load() -> Config {
-    let home = env::var("HOME").unwrap_or("./".into());
+    let user_config_path = user_config_path();
     Config::default()
         .set_default("debug", false).unwrap()
         .set_default("directory", "~/Books".to_string()).unwrap()
         .set_default("library", "library.db".to_string()).unwrap()
         .set_default("import.hash", false).unwrap()
-        .set_default("import.relocate", false).unwrap()
+        .set_default("import.move", false).unwrap()
         .set_default("import.overwrite", false).unwrap()
         .set_default("import.prune", false).unwrap()
         .set_default("import.replacements", replacements()).unwrap()
         .set_default("list.isbn", false).unwrap()
         .set_default("list.table", false).unwrap()
-        .merge(File::with_name(&format!("{}/.config/roots/default", home)).required(false)).unwrap()
+        .set("source", resolve_source(&user_config_path)).unwrap()
+        .merge(File::from(user_config_path.as_path()).required(false)).unwrap()
         .merge(Environment::with_prefix("ROOTS").separator("_")).unwrap()
         .to_owned()
+}
+
+fn user_config_path() -> PathBuf {
+    let home = env::var("HOME").unwrap_or("./".to_string());
+    PathBuf::new().join(&home).join(".config/roots/default")
+}
+
+fn resolve_source(path: &Path) -> String {
+    if path.with_extension("yml").is_file() {
+        path.with_extension("yml")
+            .as_path()
+            .to_string_lossy()
+            .to_string()
+    } else {
+        "Default configuration".to_string()
+    }
 }

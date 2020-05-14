@@ -1,22 +1,23 @@
 #[macro_use]
 extern crate clap;
 extern crate config;
-extern crate regex;
+extern crate core;
 extern crate maplit;
+extern crate regex;
 extern crate serde;
 extern crate serde_yaml;
-extern crate core;
+
+use serde_yaml::to_string as yaml_from_struct;
+
+use application::command::Command;
+use configuration::Configuration;
+use database::query::{list_fields, list_titles};
+use interface::cli::parse_command_line;
 
 mod application;
 mod configuration;
 mod database;
 mod interface;
-
-use application::command::Command;
-use interface::cli::parse_command_line;
-use configuration::Configuration;
-use database::query::{list_fields, list_titles};
-use serde_yaml::to_string as yaml_from_struct;
 
 fn main() {
     let cfg = Configuration::new();
@@ -24,7 +25,7 @@ fn main() {
     match cmd {
         Command::Config { path, .. } => {
             if path {
-                println!("Default configuration")
+                println!("{}", cfg.get_source())
             } else {
                 match yaml_from_struct(&cfg) {
                     Ok(s) => println!("{}\n", s),
