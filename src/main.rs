@@ -7,8 +7,6 @@ extern crate regex;
 extern crate serde;
 extern crate serde_yaml;
 
-use serde_yaml::to_string as yaml_from_struct;
-
 use application::command::Command;
 use configuration::Configuration;
 use database::query::{list_fields, list_titles};
@@ -23,14 +21,13 @@ fn main() {
     let cfg = Configuration::new();
     let cmd = parse_command_line();
     match cmd {
-        Command::Config { path, .. } => {
+        Command::Config { path, default } => {
             if path {
                 println!("{}", cfg.get_source())
+            } else if default {
+                println!("{}", &Configuration::default())
             } else {
-                match yaml_from_struct(&cfg) {
-                    Ok(s) => println!("{}\n", s),
-                    Err(e) => println!("uhoh {:?}", e),
-                }
+                println!("{}", &cfg)
             }
         }
         Command::Fields => {

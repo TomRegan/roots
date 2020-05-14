@@ -2,6 +2,7 @@ extern crate config;
 
 use std::{env, path::{Path, PathBuf}};
 use std::collections::HashMap;
+use std::fmt::{Display, Result, Formatter};
 
 use config::{Config, Environment, File};
 use maplit::hashmap;
@@ -52,7 +53,19 @@ impl Configuration {
     }
 }
 
-fn replacements() -> HashMap<String, String> {
+impl Default for Configuration {
+    fn default() -> Self {
+        defaults().try_into().unwrap()
+    }
+}
+
+impl Display for Configuration {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        write!(f, "{}\n", serde_yaml::to_string(self).unwrap())
+    }
+}
+
+fn default_replacements() -> HashMap<String, String> {
     hashmap!{
         r#"[<>:"\?\*\|/]"#.to_string() => r#"_"#.to_string(),
         "[\u{00}-\u{1f}]".to_string() => "".to_string(),
@@ -62,7 +75,7 @@ fn replacements() -> HashMap<String, String> {
     }
 }
 
-fn load() -> Config {
+fn defaults() -> Config {
     let user_config_path = user_config_path();
     Config::default()
         .set_default("debug", false).unwrap()
@@ -72,10 +85,16 @@ fn load() -> Config {
         .set_default("import.move", false).unwrap()
         .set_default("import.overwrite", false).unwrap()
         .set_default("import.prune", false).unwrap()
-        .set_default("import.replacements", replacements()).unwrap()
+        .set_default("import.replacements", default_replacements()).unwrap()
         .set_default("list.isbn", false).unwrap()
         .set_default("list.table", false).unwrap()
         .set("source", resolve_source(&user_config_path)).unwrap()
+        .to_owned()
+}
+
+fn load() -> Config {
+    let user_config_path = user_config_path();
+    defaults()
         .merge(File::from(user_config_path.as_path()).required(false)).unwrap()
         .merge(Environment::with_prefix("ROOTS").separator("_")).unwrap()
         .to_owned()

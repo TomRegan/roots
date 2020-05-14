@@ -8,7 +8,7 @@ fn default_config_path_is_displayed() {
     let mut cmd = Command::cargo_bin("roots").unwrap();
     cmd.arg("config").arg("--path");
     let assert = cmd.assert();
-    assert.success().stdout("Default configuration\n").code(0);
+    assert.success().code(0);
 }
 
 #[test]
