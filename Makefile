@@ -12,9 +12,13 @@ release: ## compile and optimize
 test: ## run the tests
 	@cargo test
 
+.PHONY: remove
+remove: ## remove the binary
+	@cargo remove
+
 .PHONY: install
-install: ## install a binary
-	@cargo install
+install: remove ## install the binary
+	@cargo install --path .
 
 .PHONY: clean
 clean: ## remove the target directory

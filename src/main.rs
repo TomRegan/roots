@@ -2,8 +2,10 @@
 extern crate clap;
 extern crate config;
 extern crate regex;
+extern crate maplit;
 extern crate serde;
 extern crate serde_yaml;
+extern crate core;
 
 mod application;
 mod configuration;
@@ -12,12 +14,12 @@ mod interface;
 
 use application::command::Command;
 use interface::cli::parse_command_line;
-use configuration::load_configuration;
+use configuration::Configuration;
 use database::query::{list_fields, list_titles};
 use serde_yaml::to_string as yaml_from_struct;
 
 fn main() {
-    let cfg = load_configuration();
+    let cfg = Configuration::new();
     let cmd = parse_command_line();
     match cmd {
         Command::Config { path, .. } => {

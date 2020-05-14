@@ -1,9 +1,10 @@
 extern crate config;
 
+use std::{env, path::PathBuf};
 use std::collections::HashMap;
-use std::path::PathBuf;
 
-use config::{Config, Environment};
+use config::{Config, Environment, File};
+use maplit::hashmap;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -37,43 +38,36 @@ pub struct Configuration {
     isbndb: Option<Isbndb>,
 }
 
-pub fn load_configuration() -> Configuration {
-    let mut backing = Config::default();
-    backing
-        .merge(Environment::with_prefix("ROOTS").separator("_"))
-        .unwrap();
-    Configuration {
-        debug: backing.get_bool("debug").ok().unwrap_or(false),
-        directory: PathBuf::from(
-            backing
-                .get_str("directory")
-                .unwrap_or("~/Books".to_string()),
-        ),
-        library: PathBuf::from(
-            backing
-                .get_str("library")
-                .unwrap_or("library.db".to_string()),
-        ),
-        import: Import {
-            hash: backing.get_bool("import.hash").unwrap_or(false),
-            relocate: backing.get_bool("import.move").unwrap_or(false),
-            overwrite: backing.get_bool("import.overwrite").unwrap_or(false),
-            prune: backing.get_bool("import.prune").unwrap_or(false),
-            replacements: [
-                (r#"[<>:"\?\*\|/]"#.to_string(), r#"_"#.to_string()),
-                ("[\u{00}-\u{1f}]".to_string(), "".to_string()),
-                (r#"\.$"#.to_string(), r#"_"#.to_string()),
-                (r#"\s+$"#.to_string(), r#""#.to_string()),
-                (r#"^\."#.to_string(), r#"_"#.to_string()),
-            ]
-            .iter()
-            .cloned()
-            .collect(),
-        },
-        list: List {
-            isbn: backing.get_bool("list.isbn").unwrap_or(false),
-            table: backing.get_bool("list.table").unwrap_or(false),
-        },
-        isbndb: None,
+impl Configuration {
+    pub fn new() -> Configuration {
+        load().try_into().unwrap()
     }
+}
+
+fn replacements() -> HashMap<String, String> {
+    hashmap!{
+        r#"[<>:"\?\*\|/]"#.to_string() => r#"_"#.to_string(),
+        "[\u{00}-\u{1f}]".to_string() => "".to_string(),
+        r#"\.$"#.to_string() => r#"_"#.to_string(),
+        r#"\s+$"#.to_string() => r#""#.to_string(),
+        r#"^\."#.to_string() => r#"_"#.to_string(),
+    }
+}
+
+fn load() -> Config {
+    let home = env::var("HOME").unwrap_or("./".into());
+    Config::default()
+        .set_default("debug", false).unwrap()
+        .set_default("directory", "~/Books".to_string()).unwrap()
+        .set_default("library", "library.db".to_string()).unwrap()
+        .set_default("import.hash", false).unwrap()
+        .set_default("import.relocate", false).unwrap()
+        .set_default("import.overwrite", false).unwrap()
+        .set_default("import.prune", false).unwrap()
+        .set_default("import.replacements", replacements()).unwrap()
+        .set_default("list.isbn", false).unwrap()
+        .set_default("list.table", false).unwrap()
+        .merge(File::with_name(&format!("{}/.config/roots/default", home)).required(false)).unwrap()
+        .merge(Environment::with_prefix("ROOTS").separator("_")).unwrap()
+        .to_owned()
 }
