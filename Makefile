@@ -10,7 +10,7 @@ release: ## compile and optimize
 
 .PHONY: test
 test: ## run the tests
-	@cargo test
+	@RUST_BACKTRACE=full cargo test
 
 .PHONY: remove
 remove: ## remove the binary

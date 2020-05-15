@@ -21,10 +21,10 @@ impl Application {
 }
 
 fn handle_command(cfg: Configuration, cmd: Command) -> Result<(), ()> {
-    // todo --- import command
     match cmd {
         Command::Config { .. } => handle_config_command(cfg, cmd),
         Command::Fields => handle_fields_command(cfg, cmd),
+        Command::Info { .. } => handle_info_command(cfg, cmd),
         Command::List { .. } => handle_list_command(cfg, cmd),
         Command::Update => handle_update_command(cfg, cmd),
         _ => {
@@ -63,6 +63,16 @@ fn handle_fields_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
                     println!("{}", f);
                 }
             }
+            Ok(())
+        }
+        _ => Err(())
+    }
+}
+
+fn handle_info_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
+    match cmd {
+        Command::Info { path } => {
+            println!("This is the path => {}", path);
             Ok(())
         }
         _ => Err(())
@@ -148,6 +158,17 @@ EXAMPLES:
                 ),
         )
         .subcommand(
+            SubCommand::with_name("info")
+                .about("Display information for a file")
+                .usage("root info <path>
+EXAMPLES:
+    root info file.epub
+       -> displays information for 'file.epub'")
+                .arg(Arg::with_name("path")
+                    .help("Path to e-book file")
+                    .required(true))
+        )
+        .subcommand(
             SubCommand::with_name("list")
                 .about("Queries the library")
                 .usage(
@@ -193,6 +214,9 @@ EXAMPLES:
         ("import", Some(import)) => Command::Import {
             path: import.value_of("path").map(|v| String::from(v)).unwrap(),
         },
+        ("info", Some(info)) => Command::Info {
+            path: info.value_of("path").unwrap().to_string()
+        },
         ("list", Some(list)) => Command::List {
             author: list.is_present("author"),
             isbn: list.is_present("isbn"),
@@ -200,5 +224,72 @@ EXAMPLES:
         },
         ("update", _) => Command::Update,
         _ => unreachable!(),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+
+    extern crate assert_cmd;
+
+    use interface::cli::tests::assert_cmd::prelude::*;
+    use std::process::Command;
+
+    #[test]
+    fn default_config_path_is_displayed() {
+        let mut cmd = Command::cargo_bin("roots").unwrap();
+        cmd.arg("config").arg("--path");
+        let assert = cmd.assert();
+        assert.success().code(0);
+    }
+
+    #[test]
+    fn info_returns_successfully() {
+        let mut cmd = Command::cargo_bin("roots").unwrap();
+        cmd.arg("info").arg("file.epub");
+        let assert = cmd.assert();
+        assert.success().code(0);
+    }
+
+    #[test]
+    fn info_fails_missing_path() {
+        let mut cmd = Command::cargo_bin("roots").unwrap();
+        cmd.arg("info");
+        let assert = cmd.assert();
+        assert.failure().code(1);
+    }
+
+    #[test]
+    fn default_and_path_flags_conflict() {
+        let mut cmd = Command::cargo_bin("roots").unwrap();
+        cmd.arg("config").arg("--path").arg("--default");
+        let assert = cmd.assert();
+        assert.failure().code(1);
+    }
+
+    #[test]
+    fn fields_handles_no_database() {
+        let mut cmd = Command::cargo_bin("roots").unwrap();
+        cmd.arg("fields");
+        let assert = cmd.assert();
+        assert.success().stdout("No available fields, is roots initialised?\n").code(0);
+    }
+
+    #[test]
+    fn list_handles_no_database() {
+        let assert = Command::cargo_bin("roots")
+            .unwrap()
+            .arg("list")
+            .assert();
+        assert.success().stdout("No titles to list, is roots initialised?\n").code(0);
+    }
+
+    #[test]
+    fn update_handles_no_database() {
+        let assert = Command::cargo_bin("roots")
+            .unwrap()
+            .arg("update")
+            .assert();
+        assert.success().stdout("No titles found, is roots initialised?\n").code(0);
     }
 }

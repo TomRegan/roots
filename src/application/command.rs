@@ -8,6 +8,9 @@ pub enum Command {
     Import {
         path: String,
     },
+    Info {
+        path: String,
+    },
     List {
         author: bool,
         isbn: bool,
