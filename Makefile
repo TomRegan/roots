@@ -14,10 +14,10 @@ test: ## run the tests
 
 .PHONY: remove
 remove: ## remove the binary
-	@cargo remove
+	@cargo uninstall
 
 .PHONY: install
-install: remove ## install the binary
+install: ## install the binary
 	@cargo install --path .
 
 .PHONY: clean
