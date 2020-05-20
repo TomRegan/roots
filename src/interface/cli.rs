@@ -5,7 +5,7 @@ use {
 };
 
 use crate::{
-    application::{book::MobiFile, command::Command},
+    application::{book::file::MobiFile, command::Command},
     configuration::Configuration,
 };
 
