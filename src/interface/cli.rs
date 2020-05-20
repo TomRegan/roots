@@ -1,7 +1,13 @@
-use crate::application::command::Command;
-use crate::configuration::Configuration;
-use clap::{App, AppSettings, Arg, SubCommand};
-use database::query::{list_fields, list_titles};
+use {
+    clap::{App, AppSettings, Arg, SubCommand},
+    database::query::{list_fields, list_titles},
+    std::path::Path,
+};
+
+use crate::{
+    application::{book::MobiFile, command::Command},
+    configuration::Configuration,
+};
 
 pub struct Application {
     cfg: Configuration,
@@ -9,9 +15,7 @@ pub struct Application {
 
 impl Application {
     pub fn new(cfg: Configuration) -> Self {
-        Application {
-            cfg,
-        }
+        Application { cfg }
     }
 
     pub fn run(self) -> Result<(), ()> {
@@ -28,27 +32,39 @@ fn handle_command(cfg: Configuration, cmd: Command) -> Result<(), ()> {
         Command::List { .. } => handle_list_command(cfg, cmd),
         Command::Update => handle_update_command(cfg, cmd),
         _ => {
-            println!("The application failed to complete, the reason is: unsupported command {:?}", cmd);
+            println!(
+                "The application failed to complete, the reason is: unsupported command {:?}",
+                cmd
+            );
             Err(())
-        },
+        }
     }
 }
 
 fn handle_config_command(cfg: Configuration, cmd: Command) -> Result<(), ()> {
     match cmd {
-        Command::Config { path: true, default: false } => {
+        Command::Config {
+            path: true,
+            default: false,
+        } => {
             println!("{}", cfg.get_source());
             Ok(())
         }
-        Command::Config { path: false, default: true } => {
+        Command::Config {
+            path: false,
+            default: true,
+        } => {
             println!("{}", &Configuration::default());
             Ok(())
         }
-        Command::Config { path: false, default: false } => {
+        Command::Config {
+            path: false,
+            default: false,
+        } => {
             println!("{}", cfg);
             Ok(())
         }
-        _ => Err(())
+        _ => Err(()),
     }
 }
 
@@ -65,17 +81,18 @@ fn handle_fields_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
             }
             Ok(())
         }
-        _ => Err(())
+        _ => Err(()),
     }
 }
 
 fn handle_info_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
     match cmd {
         Command::Info { path } => {
-            println!("This is the path => {}", path);
+            let mobi_file = MobiFile::new(Path::new(&path));
+            println!("{:#?}", mobi_file);
             Ok(())
         }
-        _ => Err(())
+        _ => Err(()),
     }
 }
 
@@ -92,7 +109,7 @@ fn handle_list_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
             }
             Ok(())
         }
-        _ => Err(())
+        _ => Err(()),
     }
 }
 
@@ -108,7 +125,7 @@ fn handle_update_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
             }
             Ok(())
         }
-        _ => Err(())
+        _ => Err(()),
     }
 }
 
@@ -160,13 +177,17 @@ EXAMPLES:
         .subcommand(
             SubCommand::with_name("info")
                 .about("Display information for a file")
-                .usage("root info <path>
+                .usage(
+                    "root info <path>
 EXAMPLES:
     root info file.epub
-       -> displays information for 'file.epub'")
-                .arg(Arg::with_name("path")
-                    .help("Path to e-book file")
-                    .required(true))
+       -> displays information for 'file.epub'",
+                )
+                .arg(
+                    Arg::with_name("path")
+                        .help("Path to e-book file")
+                        .required(true),
+                ),
         )
         .subcommand(
             SubCommand::with_name("list")
@@ -215,7 +236,7 @@ EXAMPLES:
             path: import.value_of("path").map(|v| String::from(v)).unwrap(),
         },
         ("info", Some(info)) => Command::Info {
-            path: info.value_of("path").unwrap().to_string()
+            path: info.value_of("path").unwrap().to_string(),
         },
         ("list", Some(list)) => Command::List {
             author: list.is_present("author"),
@@ -229,11 +250,11 @@ EXAMPLES:
 
 #[cfg(test)]
 mod tests {
-
     extern crate assert_cmd;
 
-    use interface::cli::tests::assert_cmd::prelude::*;
     use std::process::Command;
+
+    use interface::cli::tests::assert_cmd::prelude::*;
 
     #[test]
     fn default_config_path_is_displayed() {
@@ -246,7 +267,7 @@ mod tests {
     #[test]
     fn info_returns_successfully() {
         let mut cmd = Command::cargo_bin("roots").unwrap();
-        cmd.arg("info").arg("file.epub");
+        cmd.arg("info").arg("share/pg98.mobi");
         let assert = cmd.assert();
         assert.success().code(0);
     }
@@ -272,24 +293,27 @@ mod tests {
         let mut cmd = Command::cargo_bin("roots").unwrap();
         cmd.arg("fields");
         let assert = cmd.assert();
-        assert.success().stdout("No available fields, is roots initialised?\n").code(0);
+        assert
+            .success()
+            .stdout("No available fields, is roots initialised?\n")
+            .code(0);
     }
 
     #[test]
     fn list_handles_no_database() {
-        let assert = Command::cargo_bin("roots")
-            .unwrap()
-            .arg("list")
-            .assert();
-        assert.success().stdout("No titles to list, is roots initialised?\n").code(0);
+        let assert = Command::cargo_bin("roots").unwrap().arg("list").assert();
+        assert
+            .success()
+            .stdout("No titles to list, is roots initialised?\n")
+            .code(0);
     }
 
     #[test]
     fn update_handles_no_database() {
-        let assert = Command::cargo_bin("roots")
-            .unwrap()
-            .arg("update")
-            .assert();
-        assert.success().stdout("No titles found, is roots initialised?\n").code(0);
+        let assert = Command::cargo_bin("roots").unwrap().arg("update").assert();
+        assert
+            .success()
+            .stdout("No titles found, is roots initialised?\n")
+            .code(0);
     }
 }

@@ -1,0 +1,3 @@
+[submodule "lib/mobi"]
+	path = lib/mobi
+	url = https://github.com/bfabiszewski/libmobi.git

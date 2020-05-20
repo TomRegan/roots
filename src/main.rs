@@ -1,8 +1,10 @@
 #[macro_use]
 extern crate clap;
+extern crate chrono;
 extern crate config;
 extern crate core;
 extern crate maplit;
+extern crate mobi_sys;
 extern crate regex;
 extern crate serde;
 extern crate serde_yaml;
