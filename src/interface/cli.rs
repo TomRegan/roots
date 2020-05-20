@@ -3,11 +3,10 @@ use {
     database::query::{list_fields, list_titles},
     std::path::Path,
 };
+use application::book::Book;
 
-use crate::{
-    application::{book::file::MobiFile, command::Command},
-    configuration::Configuration,
-};
+use crate::application::command::Command;
+use crate::configuration::Configuration;
 
 pub struct Application {
     cfg: Configuration,
@@ -88,8 +87,8 @@ fn handle_fields_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
 fn handle_info_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
     match cmd {
         Command::Info { path } => {
-            let mobi_file = MobiFile::new(Path::new(&path));
-            println!("{:#?}", mobi_file);
+            let book = Book::new(Path::new(&path));
+            println!("{:#?}", book);
             Ok(())
         }
         _ => Err(()),

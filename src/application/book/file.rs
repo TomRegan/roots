@@ -1,24 +1,26 @@
-use crate::application::mobi::Mobi;
-
 use std::path::{Path, PathBuf};
-use super::data::BookData;
+use std::fs::canonicalize;
+use super::Book;
+use application::book::mobi::Mobi;
 
 pub trait BookFile {
-    fn as_book(&self) -> &BookData;
+    fn as_book(&self) -> &Book;
 
     fn path(&self) -> &Path;
+
+    fn book_data(self) -> Book;
 }
 
 pub struct EpubFile {
     path: PathBuf,
-    book_data: BookData,
+    book_data: Book,
 }
 
 impl EpubFile {
     pub fn new(path: &Path) -> EpubFile {
         EpubFile {
-            path: std::fs::canonicalize(path).unwrap_or(path.to_path_buf()),
-            book_data: BookData {
+            path: canonicalize(path).unwrap_or(path.to_path_buf()),
+            book_data: Book {
                 title: None,
                 author: None,
                 publisher: None,
@@ -34,27 +36,31 @@ impl EpubFile {
 }
 
 impl BookFile for EpubFile {
-    fn as_book(&self) -> &BookData {
+    fn as_book(&self) -> &Book {
         &self.book_data
     }
 
     fn path(&self) -> &Path {
         self.path.as_path()
     }
+
+    fn book_data(self) -> Book {
+        self.book_data
+    }
 }
 
 #[derive(Debug)]
 pub struct MobiFile {
     path: PathBuf,
-    book_data: BookData,
+    book_data: Book,
 }
 
 impl MobiFile {
     pub fn new(path: &Path) -> MobiFile {
         let book = Mobi::new(path).unwrap();
         MobiFile {
-            path: std::fs::canonicalize(path).unwrap_or(path.to_path_buf()),
-            book_data: BookData {
+            path: canonicalize(path).unwrap_or(path.to_path_buf()),
+            book_data: Book {
                 title: book.get_title(),
                 author: book.get_author(),
                 publisher: book.get_publisher(),
@@ -70,12 +76,16 @@ impl MobiFile {
 }
 
 impl BookFile for MobiFile {
-    fn as_book(&self) -> &BookData {
+    fn as_book(&self) -> &Book {
         &self.book_data
     }
 
     fn path(&self) -> &Path {
         self.path.as_path()
+    }
+
+    fn book_data(self) -> Book {
+        self.book_data
     }
 }
 
