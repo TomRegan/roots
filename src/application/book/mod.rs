@@ -5,6 +5,7 @@ use std::ffi::OsStr;
 
 pub mod file;
 mod mobi;
+mod epub;
 
 #[derive(Debug)]
 pub struct Book {

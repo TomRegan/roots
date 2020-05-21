@@ -1,7 +1,10 @@
-use std::path::{Path, PathBuf};
 use std::fs::canonicalize;
-use super::Book;
+use std::path::{Path, PathBuf};
+
+use application::book::epub::Epub;
 use application::book::mobi::Mobi;
+
+use super::Book;
 
 pub trait BookFile {
     fn as_book(&self) -> &Book;
@@ -18,18 +21,26 @@ pub struct EpubFile {
 
 impl EpubFile {
     pub fn new(path: &Path) -> EpubFile {
+
+        // let index = book.spine.clone();
+        // let resources = book.resources.clone();
+        // for i in index {
+        //     let p = resources.get(i.as_str()).map(|val| &val.0).unwrap();
+        //     println!("{:#?}", book.get_resource_str_by_path(p));
+        // }
+        let book = Epub::new(path).unwrap();
         EpubFile {
             path: canonicalize(path).unwrap_or(path.to_path_buf()),
             book_data: Book {
-                title: None,
-                author: None,
-                publisher: None,
-                publication_date: None,
-                imprint: None,
-                description: None,
-                subject: None,
-                asin: None,
-                isbn: None,
+                title: book.get_title(),
+                author: book.get_author(),
+                publisher: book.get_publisher(),
+                publication_date: book.get_publish_date(),
+                imprint: book.get_imprint(),
+                description: book.get_description(),
+                subject: book.get_subject(),
+                asin: book.get_asin(),
+                isbn: book.get_isbn(),
             },
         }
     }
