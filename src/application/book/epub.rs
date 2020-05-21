@@ -10,7 +10,6 @@ pub struct Epub {
 impl Epub {
     pub fn new(path: &Path) -> Result<Epub, io::Error> {
         let data = EpubDoc::new(path).unwrap();
-        println!("{:#?}", data.metadata);
         Ok(Epub { data: data })
     }
 
