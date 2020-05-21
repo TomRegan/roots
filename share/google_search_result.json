@@ -1,0 +1,745 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 2690,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "5EIPAAAAQAAJ",
+   "etag": "EMVV1rVjqiw",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/5EIPAAAAQAAJ",
+   "volumeInfo": {
+    "title": "A Tale of Two Cities",
+    "authors": [
+     "Charles Dickens"
+    ],
+    "publishedDate": "1902",
+    "description": "\"It was the best of times, it was the worst of times.\" Charles Dickens' classic novel tells the story of two Englishmen--degenerate lawyer Sydney Carton and aristocrat Charles Darnay--who fall in love with the same woman in the midst of the French Revolution's blood and terror. Originally published as 31 weekly instalments,A Tale of Two Cities has been adapted several times for film, serves as a rite of passage for many students, and is one of the most famous novels ever published. This is a free digital copy of a book that has been carefully scanned by Google as part of a project to make the world's books discoverable online. To make this print edition available as an ebook, we have extracted the text using Optical Character Recognition (OCR) technology and submitted it to a review process to ensure its accuracy and legibility across different screen sizes and devices. Google is proud to partner with libraries to make this book available to readers everywhere.",
+    "industryIdentifiers": [
+     {
+      "type": "OTHER",
+      "identifier": "OXFORD:590301321"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 324,
+    "printType": "BOOK",
+    "categories": [
+     "Executions and executioners"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 160,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.1.6.0.preview.2",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=5EIPAAAAQAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=5EIPAAAAQAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=5EIPAAAAQAAJ&q=a+tale+of+two+cities&dq=a+tale+of+two+cities&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.co.uk/books?id=5EIPAAAAQAAJ&dq=a+tale+of+two+cities&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/A_Tale_of_Two_Cities.html?hl=&id=5EIPAAAAQAAJ"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true
+    },
+    "pdf": {
+     "isAvailable": true
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=5EIPAAAAQAAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This is a free digital copy of a book that has been carefully scanned by Google as part of a project to make the world&#39;s books discoverable online."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "YqfPAAAAMAAJ",
+   "etag": "3/6W+tFZtk8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/YqfPAAAAMAAJ",
+   "volumeInfo": {
+    "title": "A Tale of Two Cities",
+    "authors": [
+     "Charles Dickens"
+    ],
+    "publishedDate": "1868",
+    "description": "\"It was the best of times, it was the worst of times.\" Charles Dickens' classic novel tells the story of two Englishmen--degenerate lawyer Sydney Carton and aristocrat Charles Darnay--who fall in love with the same woman in the midst of the French Revolution's blood and terror. Originally published as 31 weekly instalments, A Tale of Two Cities has been adapted several times for film, serves as a rite of passage for many students, and is one of the most famous novels ever published. This is a free digital copy of a book that has been carefully scanned by Google as part of a project to make the world's books discoverable online. To make this print edition available as an ebook, we have extracted the text using Optical Character Recognition (OCR) technology and submitted it to a review process to ensure its accuracy and legibility across different screen sizes and devices. Google is proud to partner with libraries to make this book available to readers everywhere.",
+    "industryIdentifiers": [
+     {
+      "type": "OTHER",
+      "identifier": "IND:30000011823097"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 441,
+    "printType": "BOOK",
+    "categories": [
+     "English literature"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 104,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.18.20.0.full.3",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=YqfPAAAAMAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=YqfPAAAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=YqfPAAAAMAAJ&printsec=frontcover&dq=a+tale+of+two+cities&hl=&cd=2&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=YqfPAAAAMAAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://play.google.com/store/books/details?id=YqfPAAAAMAAJ"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "FREE",
+    "isEbook": true,
+    "buyLink": "https://play.google.com/store/books/details?id=YqfPAAAAMAAJ&rdid=book-YqfPAAAAMAAJ&rdot=1&source=gbs_api"
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "ALL_PAGES",
+    "embeddable": true,
+    "publicDomain": true,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "downloadLink": "http://books.google.co.uk/books/download/A_Tale_of_Two_Cities.epub?id=YqfPAAAAMAAJ&hl=&output=epub&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "downloadLink": "http://books.google.co.uk/books/download/A_Tale_of_Two_Cities.pdf?id=YqfPAAAAMAAJ&hl=&output=pdf&sig=ACfU3U1jhHnMONa3VvwxRW14ch4sBDfCQA&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=YqfPAAAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This is a free digital copy of a book that has been carefully scanned by Google as part of a project to make the world&#39;s books discoverable online."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "E_ONrk1HnkEC",
+   "etag": "9ynneSCKiok",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/E_ONrk1HnkEC",
+   "volumeInfo": {
+    "title": "Tale Of Two Cities, A (Level 5)",
+    "publisher": "Orient Blackswan",
+    "publishedDate": "2001",
+    "description": "A Tale of Two Cities (1859) is set against the backdrop of the French Revolution and the reign of terror that followed. The story takes us back and forth between London and Paris-the two cities-and revolves around the lives of Lucie Manette and Charles Darnay. Against the grim background of the guillotine, unfolds a tale of adventure and mystery, heroism and courage. We see the quintessential Dickens as he vividly portrays the trials and tribulations of the poor at the hands of the rich, before the Revolution and the mindless mayhem that follows it. This historical novel is unusual for Dickens, whose other major works are set in Victorian England.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "8125020314"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9788125020318"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 108,
+    "printType": "BOOK",
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.0.2.0.preview.1",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=E_ONrk1HnkEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=E_ONrk1HnkEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=E_ONrk1HnkEC&printsec=frontcover&dq=a+tale+of+two+cities&hl=&cd=3&source=gbs_api",
+    "infoLink": "http://books.google.co.uk/books?id=E_ONrk1HnkEC&dq=a+tale+of+two+cities&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Tale_Of_Two_Cities_A_Level_5.html?hl=&id=E_ONrk1HnkEC"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=E_ONrk1HnkEC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This historical novel is unusual for Dickens, whose other major works are set in Victorian England."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "IKW-o7CVQogC",
+   "etag": "+hozvhNR/NU",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/IKW-o7CVQogC",
+   "volumeInfo": {
+    "title": "Charles Dickens's A Tale of Two Cities",
+    "authors": [
+     "Harold Bloom"
+    ],
+    "publisher": "Infobase Publishing",
+    "publishedDate": "2007-01",
+    "description": "An overview of the work features a biographical sketch of the author, a list of characters, a summary of the plot, and critical and analytical views of the work.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780791092934"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0791092933"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 131,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Nonfiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.0.1.0.preview.3",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=IKW-o7CVQogC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=IKW-o7CVQogC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=IKW-o7CVQogC&printsec=frontcover&dq=a+tale+of+two+cities&hl=&cd=4&source=gbs_api",
+    "infoLink": "http://books.google.co.uk/books?id=IKW-o7CVQogC&dq=a+tale+of+two+cities&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Charles_Dickens_s_A_Tale_of_Two_Cities.html?hl=&id=IKW-o7CVQogC"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.co.uk/books/download/Charles_Dickens_s_A_Tale_of_Two_Cities-sample-epub.acsm?id=IKW-o7CVQogC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.co.uk/books/download/Charles_Dickens_s_A_Tale_of_Two_Cities-sample-pdf.acsm?id=IKW-o7CVQogC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=IKW-o7CVQogC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "An overview of the work features a biographical sketch of the author, a list of characters, a summary of the plot, and critical and analytical views of the work."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "dU51N-dxEDcC",
+   "etag": "vl/JctNg2o8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/dU51N-dxEDcC",
+   "volumeInfo": {
+    "title": "A Tale of Two Cities",
+    "subtitle": "A Story of the French Revolution",
+    "authors": [
+     "Charles Dickens"
+    ],
+    "publisher": "Ignatius Press",
+    "publishedDate": "2012-01-01",
+    "description": "The grim tale of the people who were caught up in the wave of violence and murder which marked the French Revolution.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9781586174422"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "1586174428"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 514,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 2.5,
+    "ratingsCount": 3,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "0.2.2.0.preview.3",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=dU51N-dxEDcC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=dU51N-dxEDcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=dU51N-dxEDcC&printsec=frontcover&dq=a+tale+of+two+cities&hl=&cd=5&source=gbs_api",
+    "infoLink": "http://books.google.co.uk/books?id=dU51N-dxEDcC&dq=a+tale+of+two+cities&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/A_Tale_of_Two_Cities.html?hl=&id=dU51N-dxEDcC"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true
+    },
+    "pdf": {
+     "isAvailable": true
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=dU51N-dxEDcC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The grim tale of the people who were caught up in the wave of violence and murder which marked the French Revolution."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "TnAV0KYzkrwC",
+   "etag": "fOfAs0L6ymE",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/TnAV0KYzkrwC",
+   "volumeInfo": {
+    "title": "Charles Dickens's A Tale of Two Cities",
+    "subtitle": "A Sourcebook",
+    "authors": [
+     "Ruth F. Glancy"
+    ],
+    "publisher": "Psychology Press",
+    "publishedDate": "2006",
+    "description": "Since its publication in 1859, A Tale of Two Cities has remained the best-known fictional recreation of the French Revolution, and one of Charles Dickens¿s most exciting novels. A Tale of Two Cities blends a moving love story with the familiar figures of the Revolution¿Bastille prisoners, a starving Parisian mob, and an indolent aristocracy. Taking the form of a sourcebook, this guide to Dickens's dramatic novel offers: extensive introductory comment on the contexts and many interpretations of the text, from publication to the present annotated extracts from key contextual documents, reviews, critical works and the text itself cross-references between documents and sections of the guide, in order to suggest links between texts, contexts and criticism suggestions for further reading. This volume is essential reading for all those beginning detailed study of A Tale of Two Cities and seeking not only a guide to the novel, but a way through the wealth of contextual and critical material that surrounds Dickens' text.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "041528760X"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780415287609"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 174,
+    "printType": "BOOK",
+    "categories": [
+     "Literary Criticism"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.0.3.0.preview.1",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=TnAV0KYzkrwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=TnAV0KYzkrwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=TnAV0KYzkrwC&printsec=frontcover&dq=a+tale+of+two+cities&hl=&cd=6&source=gbs_api",
+    "infoLink": "http://books.google.co.uk/books?id=TnAV0KYzkrwC&dq=a+tale+of+two+cities&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Charles_Dickens_s_A_Tale_of_Two_Cities.html?hl=&id=TnAV0KYzkrwC"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=TnAV0KYzkrwC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This volume is essential reading for all those beginning detailed study of A Tale of Two Cities and seeking not only a guide to the novel, but a way through the wealth of contextual and critical material that surrounds Dickens&#39; text."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "DC4mYbY6bSwC",
+   "etag": "BEq/hTQRPl0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/DC4mYbY6bSwC",
+   "volumeInfo": {
+    "title": "A Tale of Two Cities",
+    "authors": [
+     "Charles Dickens",
+     "Gillen D'Arcy Wood"
+    ],
+    "publisher": "Barnes & Noble",
+    "publishedDate": "2003-12-01",
+    "description": "Presents the classic tale of love, courage, and sacrifice set against the cataclysmic events of the French Revolution.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "1603033734"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9781603033732"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 464,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 1594,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.0.1.0.preview.3",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=DC4mYbY6bSwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=DC4mYbY6bSwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=DC4mYbY6bSwC&printsec=frontcover&dq=a+tale+of+two+cities&hl=&cd=7&source=gbs_api",
+    "infoLink": "http://books.google.co.uk/books?id=DC4mYbY6bSwC&dq=a+tale+of+two+cities&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/A_Tale_of_Two_Cities.html?hl=&id=DC4mYbY6bSwC"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "ALL_PAGES",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.co.uk/books/download/A_Tale_of_Two_Cities-sample-epub.acsm?id=DC4mYbY6bSwC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.co.uk/books/download/A_Tale_of_Two_Cities-sample-pdf.acsm?id=DC4mYbY6bSwC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=DC4mYbY6bSwC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Presents the classic tale of love, courage, and sacrifice set against the cataclysmic events of the French Revolution."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "wtiCygEACAAJ",
+   "etag": "0FzLQl874iM",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/wtiCygEACAAJ",
+   "volumeInfo": {
+    "title": "A Tale of Two Cities",
+    "authors": [
+     "Charles Dickens"
+    ],
+    "publisher": "SDE Classics",
+    "publishedDate": "2019-10-03",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "1951570146"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9781951570149"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "printType": "BOOK",
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "preview-1.0.0",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=wtiCygEACAAJ&dq=a+tale+of+two+cities&hl=&cd=8&source=gbs_api",
+    "infoLink": "http://books.google.co.uk/books?id=wtiCygEACAAJ&dq=a+tale+of+two+cities&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/A_Tale_of_Two_Cities.html?hl=&id=wtiCygEACAAJ"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=wtiCygEACAAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "l7AmCwAAQBAJ",
+   "etag": "BJ9ymAnh1UI",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/l7AmCwAAQBAJ",
+   "volumeInfo": {
+    "title": "A Tale of Two Cities",
+    "authors": [
+     "Charles Dickens"
+    ],
+    "publisher": "Xist Publishing",
+    "publishedDate": "2015-02-13",
+    "description": "It was the best of times, it was the worst of times... A Tale of Two Cities (1859) is a novel by Charles Dickens, set in London and Paris before and during the French Revolution. It tells the tale of the plight of the peasants in the face of the aristocracy. This Xist Classics edition has been professionally formatted for e-readers with a linked table of contents. This eBook also contains a bonus book club leadership guide and discussion questions. We hope you’ll share this book with your friends, neighbors and colleagues and can’t wait to hear what you have to say about it. Xist Publishing is a digital-first publisher. Xist Publishing creates books for the touchscreen generation and is dedicated to helping everyone develop a lifetime love of reading, no matter what form it takes",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9781623957179"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "1623957176"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 454,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.5.7.0.preview.3",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=l7AmCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=l7AmCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=l7AmCwAAQBAJ&printsec=frontcover&dq=a+tale+of+two+cities&hl=&cd=9&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=l7AmCwAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://play.google.com/store/books/details?id=l7AmCwAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 0.96,
+     "currencyCode": "GBP"
+    },
+    "retailPrice": {
+     "amount": 0.96,
+     "currencyCode": "GBP"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=l7AmCwAAQBAJ&rdid=book-l7AmCwAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 960000.0,
+       "currencyCode": "GBP"
+      },
+      "retailPrice": {
+       "amountInMicros": 960000.0,
+       "currencyCode": "GBP"
+      },
+      "giftable": true
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.co.uk/books/download/A_Tale_of_Two_Cities-sample-epub.acsm?id=l7AmCwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.co.uk/books/download/A_Tale_of_Two_Cities-sample-pdf.acsm?id=l7AmCwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=l7AmCwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "It tells the tale of the plight of the peasants in the face of the aristocracy. This Xist Classics edition has been professionally formatted for e-readers with a linked table of contents."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "ia10fWS8I_0C",
+   "etag": "OGMSeqjzaqE",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/ia10fWS8I_0C",
+   "volumeInfo": {
+    "title": "Charles Dickens' A Tale of Two Cities",
+    "authors": [
+     "Jeffrey Karnicky"
+    ],
+    "publisher": "Research & Education Assoc.",
+    "publishedDate": "1994",
+    "description": "REA's MAXnotes for Charles Dickens' A Tale of Two Cities MAXnotes offer a fresh look at masterpieces of literature, presented in a lively and interesting fashion. Written by literary experts who currently teach the subject, MAXnotes will enhance your understanding and enjoyment of the work. MAXnotes are designed to stimulate independent thought about the literary work by raising various issues and thought-provoking ideas and questions. MAXnotes cover the essentials of what one should know about each work, including an overall summary, character lists, an explanation and discussion of the plot, the work's historical context, illustrations to convey the mood of the work, and a biography of the author. Each section of the work is individually summarized and analyzed, and has study questions and answers.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "087891949X"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780878919499"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 112,
+    "printType": "BOOK",
+    "categories": [
+     "Study Aids"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.2.4.0.preview.3",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=ia10fWS8I_0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=ia10fWS8I_0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.co.uk/books?id=ia10fWS8I_0C&printsec=frontcover&dq=a+tale+of+two+cities&hl=&cd=10&source=gbs_api",
+    "infoLink": "http://books.google.co.uk/books?id=ia10fWS8I_0C&dq=a+tale+of+two+cities&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Charles_Dickens_A_Tale_of_Two_Cities.html?hl=&id=ia10fWS8I_0C"
+   },
+   "saleInfo": {
+    "country": "GB",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "GB",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.co.uk/books/download/Charles_Dickens_A_Tale_of_Two_Cities-sample-epub.acsm?id=ia10fWS8I_0C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.co.uk/books/download/Charles_Dickens_A_Tale_of_Two_Cities-sample-pdf.acsm?id=ia10fWS8I_0C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=ia10fWS8I_0C&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Our MAXnotes for Charles Dickens&#39; A Tale of Two Cities study guide includes an overall summary, character lists, explanation and discussion of the plot, overview of the work&#39;s historical context, and a biography of the author."
+   }
+  }
+ ]
+}

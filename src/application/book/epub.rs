@@ -1,7 +1,8 @@
-use epub::doc::EpubDoc;
-use std::path::Path;
 use std::io;
-use chrono::{DateTime, Utc, NaiveDate, NaiveTime, NaiveDateTime};
+use std::path::Path;
+
+use chrono::{DateTime, Utc};
+use epub::doc::EpubDoc;
 
 pub struct Epub {
     data: EpubDoc,
@@ -10,7 +11,7 @@ pub struct Epub {
 impl Epub {
     pub fn new(path: &Path) -> Result<Epub, io::Error> {
         let data = EpubDoc::new(path).unwrap();
-        Ok(Epub { data: data })
+        Ok(Epub { data })
     }
 
     pub fn get_author(&self) -> Option<Vec<String>> {
@@ -30,14 +31,11 @@ impl Epub {
     }
 
     pub fn get_publish_date(&self) -> Option<DateTime<Utc>> {
-        self.data.mdata("date")
-            .map(|date| NaiveDate::parse_from_str(date.as_str(), "%Y-%m-%d"))
-            .and_then(|date| date.ok())
-            .map(|date| {
-                let time = NaiveTime::from_hms(0, 0, 0);
-                NaiveDateTime::new(date, time)
-            })
-            .map(|datetime| DateTime::<Utc>::from_utc(datetime, Utc))
+        self.data.metadata.get("date")
+            .unwrap_or(&Vec::<String>::new()).iter()
+            .filter_map(|str| DateTime::parse_from_rfc3339(str.as_str()).ok())
+            .map(|dt| dt.with_timezone(&Utc))
+            .next()
     }
 
     pub fn get_imprint(&self) -> Option<String> {
