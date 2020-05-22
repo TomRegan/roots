@@ -10,8 +10,7 @@ pub struct Epub {
 
 impl Epub {
     pub fn new(path: &Path) -> Result<Epub, io::Error> {
-        let data = EpubDoc::new(path).unwrap();
-        Ok(Epub { data })
+        Ok(Epub { data: EpubDoc::new(path)? })
     }
 
     pub fn get_author(&self) -> Option<Vec<String>> {
@@ -31,8 +30,7 @@ impl Epub {
     }
 
     pub fn get_publish_date(&self) -> Option<DateTime<Utc>> {
-        self.data.metadata.get("date")
-            .unwrap_or(&Vec::<String>::new()).iter()
+        self.data.metadata.get("date")?.iter()
             .filter_map(|str| DateTime::parse_from_rfc3339(str.as_str()).ok())
             .map(|dt| dt.with_timezone(&Utc))
             .next()

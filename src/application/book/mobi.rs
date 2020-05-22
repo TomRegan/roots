@@ -20,6 +20,8 @@ impl Mobi {
         read_file(path).map(|data| Mobi { data })
     }
 
+    // The libmobi common functions
+    // https://www.fabiszewski.net/libmobi/files.html
     fn apply_to_str<'a>(
         &self,
         f: unsafe extern "C" fn(MobiData) -> *mut c_char,
