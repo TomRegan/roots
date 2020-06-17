@@ -10,7 +10,7 @@ pub struct Epub {
 
 impl Epub {
     pub fn new(path: &Path) -> Result<Epub, io::Error> {
-        Ok(Epub { data: EpubDoc::new(path)? })
+        Ok(Epub { data: EpubDoc::new(path).unwrap() })
     }
 
     pub fn get_author(&self) -> Option<Vec<String>> {
