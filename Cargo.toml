@@ -9,16 +9,18 @@ readme = "README.md"
 
 [dependencies]
 clap = "^2.33.0"
-chrono = "0.4"
-c_string = "0.7.0"
-config = { version = "^0.9.3", features = ["yaml"] }
-epub = "1.2.2"
+chrono = "^0.4"
+c_string = "^0.7.0"
+config = { version = "^0.10.1", features = ["yaml"] }
+epub = "^1.2.2"
 libc = "0.2"
 maplit = "^1.0.2"
 mobi-sys = "0.1.2"
-serde = { version = "^1.0.0", features = ["derive"] }
-serde_yaml = "^0.8.0"
 regex = "^1.3.1"
+reqwest = { version = "^0.10.6", features = ["blocking", "json"] }
+serde = { version = "^1.0.0", features = ["derive"] }
+serde_json = "^1.0.56"
+serde_yaml = "^0.8.0"
 
 [dev-dependencies]
 assert_cmd = "^0.11.1"

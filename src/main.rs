@@ -7,8 +7,11 @@ extern crate epub;
 extern crate maplit;
 extern crate mobi_sys;
 extern crate regex;
+extern crate reqwest;
 extern crate serde;
 extern crate serde_yaml;
+extern crate serde_json;
+
 
 use configuration::Configuration;
 use interface::cli;
