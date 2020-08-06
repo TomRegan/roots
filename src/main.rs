@@ -11,6 +11,7 @@ extern crate reqwest;
 extern crate serde;
 extern crate serde_yaml;
 extern crate serde_json;
+extern crate url;
 
 
 use configuration::Configuration;

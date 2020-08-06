@@ -105,12 +105,14 @@ mod tests {
     use super::*;
 
     #[test]
+    #[ignore]
     fn epub_path_returns_path() {
         let book = EpubFile::new(Path::new("share/pg98.epub"));
         assert!(book.path().ends_with(Path::new("share/pg98.epub")));
     }
 
     #[test]
+    #[ignore]
     fn mobi_path_returns_path() {
         let book = MobiFile::new(Path::new("share/pg98.mobi"));
         assert!(book.path().ends_with(Path::new("share/pg98.mobi")));

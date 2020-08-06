@@ -1,6 +1,7 @@
 use regex::Regex;
 use std::collections::HashMap;
 
+#[allow(dead_code)]
 fn clean_path(replacements: &HashMap<String, String>, path: String) -> String {
     return replacements.iter().fold(path, |acc, (pat, rep)| {
         Regex::new(pat)

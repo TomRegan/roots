@@ -9,34 +9,38 @@
 // https://www.googleapis.com/books/v1/volumes?q=quilting
 
 pub mod metadata {
-
-    use serde::Deserialize;
     use std::vec::Vec;
 
-    #[derive(Debug, Deserialize)]
+    use serde::Deserialize;
+    use url::Url;
+
+    use application::book::Book;
+
+    #[derive(Debug, Deserialize, Clone)]
     pub struct VolumeIdentifier {
-        identifier: String,
+        pub identifier: String,
         #[serde(rename = "type")]
-        kind: String,
+        pub kind: String,
     }
 
-    #[derive(Debug, Deserialize)]
+    #[derive(Debug, Deserialize, Clone)]
     pub struct VolumeInfo {
-        title: Option<String>,
-        authors: Option<Vec<String>>,
+        pub title: Option<String>,
+        pub authors: Option<Vec<String>>,
+        pub publisher: Option<String>,
         #[serde(rename = "publishedDate")]
-        published_date: Option<String>,
-        description: Option<String>,
+        pub published_date: Option<String>,
+        pub description: Option<String>,
         #[serde(rename = "industryIdentifiers")]
-        industry_identifiers: Option<Vec<VolumeIdentifier>>,
-        language: Option<String>,
+        pub industry_identifiers: Option<Vec<VolumeIdentifier>>,
+        pub language: Option<String>,
     }
 
-    #[derive(Debug, Deserialize)]
+    #[derive(Debug, Deserialize, Clone)]
     pub struct Volume {
         #[serde(rename = "volumeInfo")]
-        volume_info: VolumeInfo,
-        
+        pub volume_info: VolumeInfo,
+
     }
 
     #[derive(Debug, Deserialize)]
@@ -44,21 +48,34 @@ pub mod metadata {
         kind: String,
         #[serde(rename = "totalItems")]
         total_items: u64,
-        items: Vec<Volume>,
+        pub items: Vec<Volume>,
     }
 
-    pub fn request() -> Result<VolumeResponse, Box<dyn std::error::Error>> {
+    pub fn request(book: &Book) -> Result<VolumeResponse, Box<dyn std::error::Error>> {
         println!("Making request");
-        let resp: VolumeResponse =
-            reqwest::blocking::get("https://www.googleapis.com/books/v1/volumes?q=Essential+Slick")?
-                .json::<VolumeResponse>()?;
+        let book_title = match book.title.as_ref() {
+            Some(title) => title,
+            None => panic!("Book is not identifiable! {:?}", book)
+        };
+        let url = match Url::parse(format!(
+            "https://www.googleapis.com/books/v1/volumes?q={title}",
+            title = book_title).as_str()) {
+            Ok(url) => url,
+            Err(error) => panic!("Problem parsing title {:?}", error)
+        };
+        println!("Requesting {}", url);
+        let resp = match reqwest::blocking::get(url)?
+            .json::<VolumeResponse>() {
+            Ok(resp) => resp,
+            Err(error) => panic!("Problem making request {:?}", error)
+        };
         Ok(resp)
     }
-
-    // heuristic:
-    // match isbn
-    // match as many authors and title
-    // match publication year and title
-    // match title
-    // match authors
 }
+
+// heuristic:
+// match isbn
+// match as many authors and title
+// match publication year and title
+// match title
+// match authors
