@@ -13,6 +13,7 @@ pub enum Command {
     },
     Info {
         path: String,
+        fetch: bool,
     },
     List {
         author: bool,

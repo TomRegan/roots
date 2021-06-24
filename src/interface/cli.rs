@@ -4,6 +4,7 @@ use {
     std::path::Path,
 };
 use application::book::Book;
+use application::internet::metadata;
 
 use crate::application::command::Command;
 use crate::configuration::Configuration;
@@ -87,8 +88,14 @@ fn handle_fields_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
 
 fn handle_info_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
     match cmd {
-        Command::Info { path } => {
+        Command::Info { path, fetch } => {
             let book = Book::new(Path::new(&path));
+            if fetch {
+                let result = metadata::request(&book);
+                let volumes = result.map(|r| r.items).unwrap();
+                let books = volumes.iter().map(Book::from).collect::<Vec<Book>>();
+                println!("{:#?}", books.first().unwrap());
+            }
             println!("{:#?}", book);
             Ok(())
         }
@@ -197,6 +204,12 @@ EXAMPLES:
                     Arg::with_name("path")
                         .help("Path to e-book file")
                         .required(true),
+                )
+                .arg(
+                    Arg::with_name("fetch")
+                        .short("f")
+                        .long("fetch")
+                        .help("Fetches missing information from the web"),
                 ),
         )
         .subcommand(
@@ -250,6 +263,7 @@ EXAMPLES:
         },
         ("info", Some(info)) => Command::Info {
             path: info.value_of("path").unwrap().to_string(),
+            fetch: info.is_present("fetch"),
         },
         ("list", Some(list)) => Command::List {
             author: list.is_present("author"),
