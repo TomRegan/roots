@@ -27,6 +27,7 @@ fn handle_command(cfg: Configuration, cmd: Command) -> Result<(), ()> {
     match cmd {
         Command::Config { .. } => handle_config_command(cfg, cmd),
         Command::Fields => handle_fields_command(cfg, cmd),
+        Command::Find { .. } => Ok(()),
         Command::Info { .. } => handle_info_command(cfg, cmd),
         Command::List { .. } => handle_list_command(cfg, cmd),
         Command::Update => handle_update_command(cfg, cmd),
@@ -155,8 +156,18 @@ fn parse_command_line() -> Command {
                 ),
         )
         .subcommand(
-            SubCommand::with_name("fields").about("Shows fields that can be used in queries"),
-        )
+            SubCommand::with_name("fields")
+                .about("Shows fields that can be used in queries"),
+        ).subcommand(
+        SubCommand::with_name("find")
+            .about("Find metadata online")
+            .arg(
+                Arg::with_name("scores")
+                    .short("s")
+                    .long("show-scores")
+                    .help("Show multiple results ranked by score"),
+            ),
+    )
         .subcommand(
             SubCommand::with_name("import")
                 .about("Imports new e-books")
@@ -231,6 +242,9 @@ EXAMPLES:
             default: config.is_present("default"),
         },
         ("fields", _) => Command::Fields,
+        ("find", Some(find)) => Command::Find {
+            show_scores: find.is_present("scores")
+        },
         ("import", Some(import)) => Command::Import {
             path: import.value_of("path").map(|v| String::from(v)).unwrap(),
         },
@@ -256,6 +270,14 @@ mod tests {
     use interface::cli::tests::assert_cmd::prelude::*;
 
     #[test]
+    fn find_returns_successfully() {
+        let mut cmd = Command::cargo_bin("roots").unwrap();
+        cmd.arg("find");
+        let assert = cmd.assert();
+        assert.success().code(0);
+    }
+
+    #[test]
     fn default_config_path_is_displayed() {
         let mut cmd = Command::cargo_bin("roots").unwrap();
         cmd.arg("config").arg("--path");
@@ -266,7 +288,7 @@ mod tests {
     #[test]
     fn info_returns_successfully() {
         let mut cmd = Command::cargo_bin("roots").unwrap();
-        cmd.arg("info").arg("share/pg98.mobi");
+        cmd.arg("info").arg("var/cache/pg98.mobi");
         let assert = cmd.assert();
         assert.success().code(0);
     }

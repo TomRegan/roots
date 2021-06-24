@@ -6,7 +6,8 @@
 // http://www.google.com/books/feeds/volumes/5EIPAAAAQAAJ
 
 // Google Books API
-// https://www.googleapis.com/books/v1/volumes?q=quilting
+// https://www.googleapis.com/books/v1/volumes?q=a+tale+of+two+cities
+// https://www.googleapis.com/books/v1/volumes/5EIPAAAAQAAJ
 
 pub mod metadata {
 

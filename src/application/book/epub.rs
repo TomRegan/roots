@@ -1,16 +1,17 @@
 use std::io;
+use std::fs::File;
 use std::path::Path;
 
 use chrono::{DateTime, Utc};
 use epub::doc::EpubDoc;
 
 pub struct Epub {
-    data: EpubDoc,
+    data: EpubDoc<File>,
 }
 
 impl Epub {
     pub fn new(path: &Path) -> Result<Epub, io::Error> {
-        Ok(Epub { data: EpubDoc::new(path)? })
+        Ok(Epub { data: EpubDoc::new(path).unwrap() })
     }
 
     pub fn get_author(&self) -> Option<Vec<String>> {

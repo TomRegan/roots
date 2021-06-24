@@ -5,6 +5,9 @@ pub enum Command {
         default: bool,
     },
     Fields,
+    Find {
+        show_scores: bool,
+    },
     Import {
         path: String,
     },

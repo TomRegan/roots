@@ -106,13 +106,13 @@ mod tests {
 
     #[test]
     fn epub_path_returns_path() {
-        let book = EpubFile::new(Path::new("share/pg98.epub"));
-        assert!(book.path().ends_with(Path::new("share/pg98.epub")));
+        let book = EpubFile::new(Path::new("var/cache/pg98.epub"));
+        assert!(book.path().ends_with(Path::new("var/cache/pg98.epub")));
     }
 
     #[test]
     fn mobi_path_returns_path() {
-        let book = MobiFile::new(Path::new("share/pg98.mobi"));
-        assert!(book.path().ends_with(Path::new("share/pg98.mobi")));
+        let book = MobiFile::new(Path::new("var/cache/pg98.mobi"));
+        assert!(book.path().ends_with(Path::new("var/cache/pg98.mobi")));
     }
 }

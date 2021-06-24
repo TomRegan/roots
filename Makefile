@@ -1,28 +1,38 @@
 all: help
 
+var/cache:
+	mkdir -p var/cache
+
+var/cache/pg98.mobi: var/cache
+	curl --output var/cache/pg98.mobi https://www.gutenberg.org/cache/epub/98/pg98.mobi
+
+var/cache/pg98.epub: var/cache
+	curl --output var/cache/pg98.epub https://www.gutenberg.org/cache/epub/98/pg98.epub
+
 .PHONY: compile
 compile: ## compile sources
-	@cargo build
+	cargo build
 
 .PHONY: release
 release: ## compile and optimize
-	@cargo build --release
+	cargo build --release
 
 .PHONY: test
-test: ## run the tests
-	@RUST_BACKTRACE=full cargo test
+test: compile var/cache/pg98.mobi var/cache/pg98.epub ## run the tests
+	RUST_BACKTRACE=full cargo test
 
 .PHONY: remove
 remove: ## remove the binary
-	@cargo uninstall
+	cargo uninstall
 
 .PHONY: install
 install: ## install the binary
-	@cargo install --path .
+	cargo install --path .
 
 .PHONY: clean
 clean: ## remove the target directory
-	@cargo clean
+	cargo clean
+	$(RM) -rf var/
 
 .PHONY: help
 help:
