@@ -5,7 +5,6 @@ extern crate config;
 extern crate core;
 extern crate epub;
 extern crate maplit;
-extern crate mobi_sys;
 extern crate regex;
 extern crate reqwest;
 extern crate serde;

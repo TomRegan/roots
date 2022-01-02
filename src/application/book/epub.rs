@@ -1,12 +1,11 @@
 use std::io;
-use std::fs::File;
 use std::path::Path;
 
 use chrono::{DateTime, Utc};
 use epub::doc::EpubDoc;
 
 pub struct Epub {
-    data: EpubDoc<File>,
+    data: EpubDoc,
 }
 
 impl Epub {
