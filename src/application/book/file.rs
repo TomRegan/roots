@@ -1,8 +1,7 @@
 use std::fs::canonicalize;
 use std::path::{Path, PathBuf};
 
-use application::book::epub::Epub;
-use application::book::mobi::Mobi;
+use application::book::loader::{EpubLoader, MobiLoader};
 
 use super::Book;
 
@@ -21,14 +20,7 @@ pub struct EpubFile {
 
 impl EpubFile {
     pub fn new(path: &Path) -> EpubFile {
-
-        // let index = book.spine.clone();
-        // let resources = book.resources.clone();
-        // for i in index {
-        //     let p = resources.get(i.as_str()).map(|val| &val.0).unwrap();
-        //     println!("{:#?}", book.get_resource_str_by_path(p));
-        // }
-        let book = Epub::new(path).unwrap();
+        let book = EpubLoader::new(path).unwrap();
         EpubFile {
             path: canonicalize(path).unwrap_or(path.to_path_buf()),
             book_data: Book {
@@ -68,7 +60,7 @@ pub struct MobiFile {
 
 impl MobiFile {
     pub fn new(path: &Path) -> MobiFile {
-        let book = Mobi::new(path).unwrap();
+        let book = MobiLoader::new(path).unwrap();
         MobiFile {
             path: canonicalize(path).unwrap_or(path.to_path_buf()),
             book_data: Book {

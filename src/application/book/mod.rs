@@ -7,8 +7,7 @@ use application::book::file::{BookFile, EpubFile, MobiFile};
 use application::internet::metadata::Volume;
 
 pub mod file;
-mod mobi;
-mod epub;
+mod loader;
 
 #[derive(Debug)]
 pub struct Book {

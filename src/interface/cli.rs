@@ -19,7 +19,7 @@ impl Application {
     }
 
     pub fn run(self) -> Result<(), ()> {
-        let cmd = parse_command_line();
+        let cmd: Command = parse_command_line();
         handle_command(self.cfg, cmd)
     }
 }
