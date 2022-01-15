@@ -20,10 +20,12 @@ use interface::cli;
 mod application;
 mod configuration;
 mod database;
+mod filesystem;
 mod interface;
+mod internet;
 
-fn main() {
+fn main() -> Result<(), ()> {
     let cfg = Configuration::new();
     let app = cli::Application::new(cfg);
-    app.run().ok();
+    app.run()
 }

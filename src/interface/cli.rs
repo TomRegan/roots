@@ -4,7 +4,7 @@ use {
     std::path::Path,
 };
 use application::book::Book;
-use application::internet::metadata;
+use internet::metadata;
 
 use crate::application::command::Command;
 use crate::configuration::Configuration;
@@ -29,16 +29,10 @@ fn handle_command(cfg: Configuration, cmd: Command) -> Result<(), ()> {
         Command::Config { .. } => handle_config_command(cfg, cmd),
         Command::Fields => handle_fields_command(cfg, cmd),
         Command::Find { .. } => Ok(()),
+        Command::Import { .. } => handle_import_command(cfg, cmd),
         Command::Info { .. } => handle_info_command(cfg, cmd),
         Command::List { .. } => handle_list_command(cfg, cmd),
         Command::Update => handle_update_command(cfg, cmd),
-        _ => {
-            println!(
-                "The application failed to complete, the reason is: unsupported command {:?}",
-                cmd
-            );
-            Err(())
-        }
     }
 }
 
@@ -86,6 +80,11 @@ fn handle_fields_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
     }
 }
 
+fn handle_import_command(_cfg: Configuration, _cmd: Command) -> Result<(), ()> {
+    println!("No files found to import.");
+    Ok(())
+}
+
 fn handle_info_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
     match cmd {
         Command::Info { path, fetch } => {
@@ -94,7 +93,7 @@ fn handle_info_command(_cfg: Configuration, cmd: Command) -> Result<(), ()> {
                 let result = metadata::request(&book);
                 let volumes = result.map(|r| r.items).unwrap();
                 let books = volumes.iter().map(Book::from).collect::<Vec<Book>>();
-                println!("{:#?}", books.first().unwrap());
+                println!("{:#?}", books);
             }
             println!("{:#?}", book);
             Ok(())
@@ -349,6 +348,14 @@ mod tests {
         assert
             .success()
             .stdout("No titles found, is roots initialised?\n")
+            .code(0);
+    }
+
+    #[test]
+    fn import_returns_successfully() {
+        let assert = Command::cargo_bin("roots").unwrap().arg("import").arg(".").assert();
+        assert.success()
+            .stdout("No files found to import.\n")
             .code(0);
     }
 }

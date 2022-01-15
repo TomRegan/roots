@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 // Handling Metadata, Dublin Core spec:
 // https://dublincore.org/specifications/dublin-core/dcmi-terms/
 
@@ -9,9 +10,32 @@
 // https://www.googleapis.com/books/v1/volumes?q=a+tale+of+two+cities
 // https://www.googleapis.com/books/v1/volumes/5EIPAAAAQAAJ
 
+use chrono::{DateTime, Utc};
+use application::book::Book;
+use internet::metadata::Volume;
+
+impl From<&Volume> for Book {
+    fn from(volume: &Volume) -> Self {
+        let info = volume.volume_info.clone();
+        Book {
+            title: info.title,
+            author: info.authors,
+            publisher: info.publisher,
+            publication_date:
+            info.published_date
+                .and_then(|s| DateTime::parse_from_rfc3339(s.as_str()).ok())
+                .map(|dt| dt.with_timezone(&Utc)),
+            imprint: None,
+            description: info.description,
+            subject: None,
+            asin: None,
+            isbn: None,
+        }
+    }
+}
+
 pub mod metadata {
     use std::vec::Vec;
-
     use serde::Deserialize;
     use url::Url;
 

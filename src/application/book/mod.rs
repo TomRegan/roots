@@ -4,7 +4,6 @@ use std::path::Path;
 use chrono::{DateTime, Utc};
 
 use application::book::file::{BookFile, EpubFile, MobiFile};
-use application::internet::metadata::Volume;
 
 pub mod file;
 mod loader;
@@ -28,24 +27,6 @@ impl Book {
             Some("mobi") => MobiFile::new(p).book_data(),
             Some("epub") => EpubFile::new(p).book_data(),
             _ => panic!("oops")
-        }
-    }
-
-    pub fn from(v: &Volume) -> Book {
-        let info = v.volume_info.clone();
-        Book {
-            title: info.title,
-            author: info.authors,
-            publisher: info.publisher,
-            publication_date:
-            info.published_date
-                .and_then(|s| DateTime::parse_from_rfc3339(s.as_str()).ok())
-                .map(|dt| dt.with_timezone(&Utc)),
-            imprint: None,
-            description: info.description,
-            subject: None,
-            asin: None,
-            isbn: None,
         }
     }
 }
