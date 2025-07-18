@@ -6,13 +6,19 @@ use chrono::{DateTime, NaiveDate, NaiveDateTime, NaiveTime, Utc};
 use epub::doc::EpubDoc;
 use mobi::Mobi as MobiDoc;
 
-fn convert(published_date: Option<String>) -> DateTime<Utc> {
-    let parsed: Option<NaiveDate> = NaiveDate::parse_from_str(published_date.unwrap().as_str(), "%Y-%m-%d").ok();
-    let date_component: NaiveDate = parsed.unwrap_or(NaiveDate::from_ymd(1970, 01, 01));
-    let time_component: NaiveTime = NaiveTime::from_hms(0, 0, 0);
-    let naive_date_time: NaiveDateTime = NaiveDateTime::new(date_component, time_component);
-    let utc_date_time: DateTime<Utc> = DateTime::from_utc(naive_date_time, Utc);
-    utc_date_time
+fn convert(published_date: Option<String>) -> Option<DateTime<Utc>> {
+    match published_date {
+        Some(date_str) => {
+            NaiveDate::parse_from_str(date_str.as_str(), "%Y-%m-%d")
+                .ok()
+                .map(|date_component| {
+                    let time_component: NaiveTime = NaiveTime::from_hms_opt(0, 0, 0).unwrap();
+                    let naive_date_time: NaiveDateTime = NaiveDateTime::new(date_component, time_component);
+                    DateTime::from_naive_utc_and_offset(naive_date_time, Utc)
+                })
+        },
+        None => None
+    }
 }
 
 pub struct EpubLoader {
@@ -41,9 +47,9 @@ impl EpubLoader {
     }
 
     pub fn get_publish_date(&self) -> Option<DateTime<Utc>> {
-        let published_date: Option<String> = self.data.metadata.get("date").unwrap().first().cloned();
-        let utc_date_time: DateTime<Utc> = convert(published_date);
-        Some(utc_date_time)
+        let published_date: Option<String> = self.data.metadata.get("date")
+            .and_then(|dates| dates.first().cloned());
+        convert(published_date)
     }
 
     pub fn get_imprint(&self) -> Option<String> {
@@ -90,8 +96,7 @@ impl MobiLoader {
 
     pub fn get_publish_date(&self) -> Option<DateTime<Utc>> {
         let published_date: Option<String> = self.data.publish_date();
-        let utc_date_time: DateTime<Utc> = convert(published_date);
-        Some(utc_date_time)
+        convert(published_date)
     }
 
     pub fn get_imprint(&self) -> Option<String> {
