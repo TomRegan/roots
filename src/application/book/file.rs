@@ -1,7 +1,7 @@
 use std::fs::canonicalize;
 use std::path::{Path, PathBuf};
 
-use application::book::loader::{EpubLoader, MobiLoader};
+use crate::application::book::loader::{EpubLoader, MobiLoader};
 
 use super::Book;
 

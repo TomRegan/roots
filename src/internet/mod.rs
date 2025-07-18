@@ -11,8 +11,8 @@
 // https://www.googleapis.com/books/v1/volumes/5EIPAAAAQAAJ
 
 use chrono::{DateTime, Utc};
-use application::book::Book;
-use internet::metadata::Volume;
+use crate::application::book::Book;
+use crate::internet::metadata::Volume;
 
 impl From<&Volume> for Book {
     fn from(volume: &Volume) -> Self {
@@ -39,7 +39,7 @@ pub mod metadata {
     use serde::Deserialize;
     use url::Url;
 
-    use application::book::Book;
+    use crate::application::book::Book;
 
     #[derive(Debug, Deserialize, Clone)]
     pub struct VolumeIdentifier {

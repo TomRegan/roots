@@ -1,10 +1,10 @@
 use {
     clap::{App, AppSettings, Arg, SubCommand},
-    database::query::{list_fields, list_titles},
+    crate::database::query::{list_fields, list_titles},
     std::path::Path,
 };
-use application::book::Book;
-use internet::metadata;
+use crate::application::book::Book;
+use crate::internet::metadata;
 
 use crate::application::command::Command;
 use crate::configuration::Configuration;
@@ -280,7 +280,7 @@ mod tests {
 
     use std::process::Command;
 
-    use interface::cli::tests::assert_cmd::prelude::*;
+    use assert_cmd::prelude::*;
 
     #[test]
     fn find_returns_successfully() {

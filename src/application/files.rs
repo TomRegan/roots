@@ -1,6 +1,6 @@
 use regex::Regex;
 
-use filesystem::Replacements;
+use crate::filesystem::Replacements;
 
 #[allow(unused)]
 fn clean_path(replacements: Replacements, path: String) -> String {

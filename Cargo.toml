@@ -1,6 +1,7 @@
 [package]
 name = "roots"
 version = "0.3.0"
+edition = "2021"
 authors = ["Tom Regan <tomregan@fastmail.fm>"]
 keywords = ["roots", "ebook", "manager"]
 readme = "README.md"
